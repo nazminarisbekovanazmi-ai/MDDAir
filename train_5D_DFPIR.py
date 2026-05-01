@@ -74,7 +74,8 @@ args = parser.parse_args()
 
 psnr_max = 10
 
-clip_model, _ = clip.load("ViT-B/32", device=args.cuda)
+# clip_model, _ = clip.load("ViT-B/32", device=args.cuda)
+clip_model, _ = clip.load("ViT-B/32", device="cpu")
 for param in clip_model.parameters():
     param.requires_grad = False  
 
@@ -316,7 +317,7 @@ def test_lowlight(net, dataset,text_prompt=""):
 
 if __name__ == '__main__':
     os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
-    os.environ["CUDA_VISIBLE_DEVICES"] = args.gpu
+    # os.environ["CUDA_VISIBLE_DEVICES"] = args.gpu
 # -------------------------------------------------------
     np.random.seed(0)
     torch.manual_seed(0)
@@ -349,7 +350,7 @@ if __name__ == '__main__':
     if args.pretrained_1:
         if os.path.isfile(args.pretrained_1):
             print("=> loading model '{}'".format(args.pretrained_1))
-            model_pretrained = torch.load(args.pretrained_1,map_location=torch.device('cuda:0'))
+            model_pretrained = torch.load(args.pretrained_1,map_location=torch.device('cpu'))
             
             pretrained_dict = model_pretrained['state_dict']
             model_dict = model.state_dict()

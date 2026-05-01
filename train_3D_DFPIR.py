@@ -33,7 +33,7 @@ parser.add_argument('--save_dir', type=str, default='./', # ----------------
 
 parser.add_argument('--gpu', type=str, default="0,1", # -----------GPU
                     help='GPUs') 
-parser.add_argument('--cuda', type=int, default=1) # -----------GPU
+parser.add_argument('--cuda', type=int, default=0) # -----------GPU
 parser.add_argument('--pretrained_1', type=str, default=
         './', 
         help='training loss')
@@ -248,7 +248,7 @@ def test_Derain_Dehaze(net, dataset, task="derain",text_prompt=""):
 
 if __name__ == '__main__':
     os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
-    os.environ["CUDA_VISIBLE_DEVICES"] = args.gpu
+    # os.environ["CUDA_VISIBLE_DEVICES"] = args.gpu
 # -------------------------------------------------------
     np.random.seed(0)
     torch.manual_seed(0)
@@ -280,7 +280,7 @@ if __name__ == '__main__':
     if args.pretrained_1:
         if os.path.isfile(args.pretrained_1):
             print("=> loading model '{}'".format(args.pretrained_1))
-            model_pretrained = torch.load(args.pretrained_1,map_location=torch.device('cuda:0'))        
+            model_pretrained = torch.load(args.pretrained_1,map_location=torch.device("cuda:0"))        
             pretrained_dict = model_pretrained['state_dict']
             model_dict = model.state_dict()
             pretrained_dict = {k: v for k, v in pretrained_dict.items() if k in model_dict}
