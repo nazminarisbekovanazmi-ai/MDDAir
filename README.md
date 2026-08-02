@@ -47,21 +47,11 @@ python test_5D_MDDAir.py
 
 The pretrained weights for the 3-degradation model can be downloaded here: https://drive.google.com/file/d/1YGYYmbq1wHTthVcsimac1_6FUiwqrVJu/view?usp=drive_link. 
 The pretrained weights for the 5-degradation model can be downloaded  here: https://drive.google.com/file/d/1-OYxcVjzjg9kCiUwQYz644IO4hbs6fo3/view?usp=drive_link. 
+
+
 Ablation study checkpoints are here: 
 no degradation estimator: https://drive.google.com/file/d/1wwp4fg_1rQpSJWLxcuHt-4L7bfA6bQSN/view?usp=drive_link 
-no severity spatial attention: 
-no feature-wise linear modulation: 
-
-
-
-### Results
-Performance results of the MDDAir framework trained under the all-in-one setting.
-**Three Distinct Degradations**:
-
-![3D](./fig/3D.jpg)  
-
-**Five Distinct Degradations**:
-
-![5D](./fig/5D.jpg) 
+no severity spatial attention: https://drive.google.com/file/d/1oo3gkO1zjdTFFbg1HJD9-yLZBPj57XlO/view?usp=drive_link
+no feature-wise linear modulation: https://drive.google.com/file/d/1KkGjePW0fzYBTSstdLgU4J2MeKaqEeyy/view?usp=drive_link
 
 
