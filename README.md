@@ -10,7 +10,7 @@ All-in-one image restoration aims to recover images corrupted by diverse degrada
 
 ## Model Architecture
 
-![Model Architecture](./fig/shuffle-fram.jpg)  
+![Model Architecture](figures/Fig 1)  
 
 ---
 
