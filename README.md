@@ -10,7 +10,7 @@ All-in-one image restoration aims to recover images corrupted by diverse degrada
 
 ## Model Architecture
 
-![Model Architecture]([figures/Fig 1.pdf](https://github.com/nazminarisbekovanazmi-ai/MDDAir/blob/main/figures/Fig%201.pdf))  
+![Model Architecture]([figures/Fig 1.png](https://github.com/nazminarisbekovanazmi-ai/MDDAir/blob/main/figures/Fig%201.pdf))  
 
 ---
 
