@@ -10,7 +10,7 @@ All-in-one image restoration aims to recover images corrupted by diverse degrada
 
 ## Model Architecture
 
-![Model Architecture]("C:\Users\Nazmi\Desktop\실험\MDDAir\figures\Fig 1.png")  
+![Model Architecture]![Model Architecture](figures/Fig 1.png)
 
 ---
 
