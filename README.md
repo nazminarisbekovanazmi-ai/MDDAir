@@ -45,8 +45,8 @@ python test_5D_MDDAir.py
 ```
 ### Pretrained Model Weights
 
-The pretrained weights for the 3-degradation model can be downloaded [here] https://drive.google.com/file/d/1YGYYmbq1wHTthVcsimac1_6FUiwqrVJu/view?usp=drive_link. 
-The pretrained weights for the 5-degradation model can be downloaded [here] (https://drive.google.com/file/d/1-OYxcVjzjg9kCiUwQYz644IO4hbs6fo3/view?usp=drive_link)
+The pretrained weights for the 3-degradation model can be downloaded here: https://drive.google.com/file/d/1YGYYmbq1wHTthVcsimac1_6FUiwqrVJu/view?usp=drive_link. 
+The pretrained weights for the 5-degradation model can be downloaded  here: https://drive.google.com/file/d/1-OYxcVjzjg9kCiUwQYz644IO4hbs6fo3/view?usp=drive_link. 
 
 
 
