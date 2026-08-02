@@ -14,6 +14,8 @@ All-in-one image restoration aims to recover images corrupted by diverse degrada
 
 
 ## MDDAir's novelty 
+
+![MDDAir's novelty](https://github.com/nazminarisbekovanazmi-ai/MDDAir/blob/main/figures/Fig%202.png)
 ---
 
 ## Usage
