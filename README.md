@@ -21,23 +21,23 @@ All-in-one image restoration aims to recover clear images from various degradati
 Train three types of degradations by running:
 
 ```bash
-python train_3D_DFPIR.py
+python train_3D_MDDAir.py
 ```
 Train five types of degradations by running:
 ```bash
-python train_5D_DFPIR.py
+python train_5D_MDDAir.py
 ```
 ###  Testing
 
 Test three types of degradations by running:
 
 ```bash
-python test_3D_DFPIR.py
+python test_3D_MDDAir.py
 ```
 Test five types of degradations by running:
 
 ```bash
-python test_5D_DFPIR.py
+python test_5D_MDDAir.py
 ```
 ### Pretrained Model Weights
 
@@ -46,7 +46,7 @@ The pretrained weights for the three distinct degradation types under simple pro
 We have also uploaded and shared the model weights on Google Drive. The link is: https://drive.google.com/drive/folders/15bOk4xrsK1b3nIu3-OzUj4O_ZssdFN5Y?usp=sharing
 
 ### Results
-Performance results of the DFPIR framework trained under the all-in-one setting.
+Performance results of the MDDAir framework trained under the all-in-one setting.
 **Three Distinct Degradations**:
 
 ![3D](./fig/3D.jpg)  

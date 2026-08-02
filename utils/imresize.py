@@ -8,16 +8,15 @@ def imresize(im, scale_factor=None, output_shape=None, kernel=None, antialiasing
     scale_factor, output_shape = fix_scale_and_size(im.shape, output_shape, scale_factor)
 
     # For a given numeric kernel case, just do convolution and sub-sampling (downscaling only)
-    if type(kernel) == np.ndarray and scale_factor[0] <= 1:
+    if type(kernel) == np.ndarray and float(scale_factor[0]) <= 1:
         return numeric_kernel(im, kernel, scale_factor, output_shape, kernel_shift_flag)
 
     # Choose interpolation method, each method has the matching kernel size
     method, kernel_width = {
         "cubic": (cubic, 4.0),
-        "lanczos2": (lanczos2, 4.0),
+        "lanczos2": (lanczos2, 4.0), 
         "lanczos3": (lanczos3, 6.0),
-        "box": (box, 1.0),
-        "linear": (linear, 2.0),
+        "box": (box, 1.0),               "linear": (linear, 2.0),
         None: (cubic, 4.0)  # set default interpolation method as cubic
     }.get(kernel)
 
@@ -60,7 +59,7 @@ def fix_scale_and_size(input_shape, output_shape, scale_factor):
     # Fixing output-shape (if given): extending it to the size of the input-shape, by assigning the original input-size
     # to all the unspecified dimensions
     if output_shape is not None:
-        output_shape = list(np.uint(np.array(output_shape))) + list(input_shape[len(output_shape):])
+        output_shape = list(np.array(output_shape, dtype=np.uint64)) + list(input_shape[len(output_shape):])
 
     # Dealing with the case of non-give scale-factor, calculating according to output-shape. note that this is
     # sub-optimal, because there can be different scales to the same output-shape.
@@ -69,7 +68,7 @@ def fix_scale_and_size(input_shape, output_shape, scale_factor):
 
     # Dealing with missing output-shape. calculating according to scale-factor
     if output_shape is None:
-        output_shape = np.uint(np.ceil(np.array(input_shape) * np.array(scale_factor)))
+        output_shape = np.ceil(np.array(input_shape) * np.array(scale_factor)).astype(np.uint64)
 
     return scale_factor, output_shape
 
@@ -109,7 +108,7 @@ def contributions(in_length, out_length, scale, kernel, kernel_width, antialiasi
     # Determine a set of field_of_view for each each output position, these are the pixels in the input image
     # that the pixel in the output image 'sees'. We get a matrix whos horizontal dim is the output pixels (big) and the
     # vertical dim is the pixels it 'sees' (kernel_size + 2)
-    field_of_view = np.squeeze(np.uint(np.expand_dims(left_boundary, axis=1) + np.arange(expanded_kernel_width) - 1))
+    field_of_view = np.squeeze((np.expand_dims(left_boundary, axis=1) + np.arange(expanded_kernel_width) - 1).astype(np.uint64))
 
     # Assign weight to each pixel in the field of view. A matrix whos horizontal dim is the output pixels and the
     # vertical dim is a list of weights matching to the pixel in the field of view (that are specified in
@@ -122,7 +121,7 @@ def contributions(in_length, out_length, scale, kernel, kernel_width, antialiasi
     weights = 1.0 * weights / np.expand_dims(sum_weights, axis=1)
 
     # We use this mirror structure as a trick for reflection padding at the boundaries
-    mirror = np.uint(np.concatenate((np.arange(in_length), np.arange(in_length - 1, -1, step=-1))))
+    mirror = np.concatenate((np.arange(in_length), np.arange(in_length - 1, -1, step=-1))).astype(np.uint64)
     field_of_view = mirror[np.mod(field_of_view, mirror.shape[0])]
 
     # Get rid of  weights and pixel positions that are of zero weight
@@ -190,7 +189,7 @@ def kernel_shift(kernel, sf):
 
     # Before applying the shift, we first pad the kernel so that nothing is lost due to the shift
     # (biggest shift among dims + 1 for safety)
-    kernel = np.pad(kernel, np.int(np.ceil(np.max(shift_vec))) + 1, 'constant')
+    kernel = np.pad(kernel, int(np.ceil(np.max(shift_vec))) + 1, 'constant')
 
     # Finally shift the kernel and return
     return interpolation.shift(kernel, shift_vec)
