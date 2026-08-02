@@ -47,6 +47,10 @@ python test_5D_MDDAir.py
 
 The pretrained weights for the 3-degradation model can be downloaded here: https://drive.google.com/file/d/1YGYYmbq1wHTthVcsimac1_6FUiwqrVJu/view?usp=drive_link. 
 The pretrained weights for the 5-degradation model can be downloaded  here: https://drive.google.com/file/d/1-OYxcVjzjg9kCiUwQYz644IO4hbs6fo3/view?usp=drive_link. 
+Ablation study checkpoints are here: 
+no degradation estimator: https://drive.google.com/file/d/1wwp4fg_1rQpSJWLxcuHt-4L7bfA6bQSN/view?usp=drive_link 
+no severity spatial attention: 
+no feature-wise linear modulation: 
 
 
 
@@ -60,28 +64,4 @@ Performance results of the MDDAir framework trained under the all-in-one setting
 
 ![5D](./fig/5D.jpg) 
 
-The visual results under the three degradation types are provided [here](https://pan.baidu.com/s/1xa_i7cbg5slEyLvBpC4JKg?pwd=lljd )(lljd).  The visual results under the five degradation types are provided [here](https://pan.baidu.com/s/1tfYrxfOI61om8QX9PnXLFA?pwd=tsbp)(tsbp).
 
-### Python Runtime Environment
-python: 3.11.5
-
-pytorch: 2.1.1
-
-numpy: 1.26.0
-
-### Citation
-If you use our work, please consider citing:
-```bash
-@inproceedings{tian2025degradation,
-  title={Degradation-Aware Feature Perturbation for All-in-One Image Restoration},
-  author={Tian, Xiangpeng and Liao, Xiangyu and Liu, Xiao and Li, Meng and Ren, Chao},
-  booktitle={Proceedings of the Computer Vision and Pattern Recognition Conference},
-  pages={28165--28175},
-  year={2025}
-}
-```
-## Contact
-
-Should you have any questions, please contact tianxp@stu.scu.edu.cn
-
-**Acknowledgment:** This code is based on the [PromptIR](https://github.com/va1shn9v/PromptIR) and [PIP]([longzilicart/pip_universal](https://github.com/longzilicart/pip_universal)) repository.
